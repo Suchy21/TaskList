@@ -1,21 +1,14 @@
 {
-    const tasks = [
-        {
-            content: "Spacer z psem", 
-            done: false,
-        },
-    ];
+    const tasks = [];
 
     const addNewTask = (newTaskContent) => {
         tasks.push({
             content: newTaskContent,
-            done: false,
-            class: "tasks__item"
+
         });
         render();
     };
 
-    
     const removeTask = (taskIndex) => {
         tasks.splice(taskIndex, 1);
         render();
@@ -48,16 +41,19 @@
         let htmlString = "";
         for (const [taskIndex, task] of tasks.entries()) {
             htmlString += `
-                <div class="tasks">
-                    <li class="text "${task.done ? ' style="text-decoration: line-through;"' : ''}>
-                        <button class="tasks__item js-done">✔️</button>
+                    <li class="tasks"${task.done ? ' style="text-decoration: line-through;"' : ''}>
+                    <button class="tasks__item js-done">
+                    ${task.done ? "✔️" : ""}
+                    </button>
+                    <span>
                         ${task.content}
-                        <button class="tasks__item--remove js-remove">🗑</button>
-                        
+                    </span>
+                    <button class="tasks__item--remove js-remove">
+                    🗑
+                    </button>
                     </li>
-                </div>
-            `;
-        }
+                ` ;
+            }
         document.querySelector(".js-tasks").innerHTML = htmlString;
 
         bindEvents();

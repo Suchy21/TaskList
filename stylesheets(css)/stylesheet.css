@@ -47,10 +47,9 @@ body {
     border: none;
 }
 .tasks {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: repeat(2, 1fr);  
-
+    list-style: none;
+    margin: 0;
+    padding: 0;
     
 
 }
@@ -59,10 +58,13 @@ body {
     background-color: rgb(155, 218, 143);
     color: aliceblue;
     margin-right: 20px;
+    width: 30px;
+    height: 30px;
 }
 .tasks__item--remove{
     background-color: crimson;
-    max-width: 30px;
+    width: 30px;
+    height: 30px;
     float: right;
 
 }
@@ -70,8 +72,7 @@ body {
     list-style: none;
 }
 @media (max-width: 767px){
-    .form__button{
-        display: flex;
-        flex-wrap: wrap;
+    .form{
+        grid-template-columns: 1fr;
     }
 }
